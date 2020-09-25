@@ -9,7 +9,7 @@
     var r = confirm("Are you a student?");
     if (r == true) {
       alert("Welcome student!");
-} else {
+}     else {
       alert("Sorry, this page is for students only!")
       window.stop();
 }
@@ -19,18 +19,17 @@
           "http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg",
           "http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg",
           "http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg"
-
     ];
+    document.write("<img src='http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg'>" );
+    document.images[0].src = images[number];
+    document.write("<br>");
+
     //Tehtävä 1
     var quote = "\"If I had nine hours to chop down a tree, I\'d spend the first six sharpening my ax.\"";
     var abe = "Abraham Lincoln";
     document.write(quote.bold());
     document.write("<br>");
     document.write(" -- " + abe.italics());
-    document.write("<br>");
-
-    document.write("<img src='http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg'>" );
-    document.images[0].src = images[number];
     document.write("<br>");
 
     //Tehtävä 2
@@ -45,8 +44,8 @@
     function browser()	{
               if (navigator.appCodeName="Firefox"){
                   window.open('http://mozilla.org/', '_blank');
-
-              }else{
+              }
+              else {
                   window.open('http://www.microsoft.com/', '_blank');
               }
           }
@@ -54,6 +53,5 @@
     </script>
   </head>
   <body>
-
   </body>
 </html>
