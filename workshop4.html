@@ -1,0 +1,274 @@
+<HTML>
+<style>
+body {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: #333333;
+}
+
+div {
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+}
+table, tr, td{
+  border: 1px solid gray;
+  width: 50%;
+}
+img {
+    position: relative;
+    left:0px;
+}
+
+</style>
+<script>
+//Button 1
+function changeHeader() {
+var x = document.getElementsByTagName("h1");
+x[0].innerHTML = "Modified heading!";
+}
+//Button 2
+function themeChange()	{
+var y = document.getElementsByTagName("h2");
+y[1].style = "background:black; color:yellow; font-style:italic; font-size:15px;";
+}
+//Button 3
+function thirdButton(){
+    var z = document.getElementsByTagName('p');
+    z[3].innerHTML += "<br><br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. <br>Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. <br>Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit.";
+    z[3].style = "font-Style: italic";
+    document.body.style.background = "grey";
+    var img = document.createElement("IMG");
+    img.setAttribute("src", "https://www.theloremipsumco.com/wp-content/uploads/Lorem-Ipsum-Co-Logo-White-1.png");
+    document.getElementsByTagName('p')[3].appendChild(img);
+}
+
+//1st checkbox
+function hide() {
+document.getElementById('data').style = "display: none";
+}
+//2nd checkbox
+function show() {
+document.getElementById('data').style = "display: block";
+}
+
+//3rd checkbox
+function surprise()	{
+let table = document.querySelectorAll('.surprise');
+for (var i=0; i < table.length; i++)	{
+	table[i].style = "font-size: 20px";
+}
+}
+
+
+//Exercise 3.1 and 3.3
+function	alertChoice()	{
+	var x = document.getElementById("mySelect").value;
+	alert("You selected: " +x+ "!");
+	var data = document.getElementById('mySelect').value;
+	var image = document.getElementById('carimage');
+
+	if (data == "Audi")	{
+		image.src = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2021-audi-q7-mmp-1-1591218923.jpg";
+	}
+	else if (data == "BMW")	{
+	image.src = "https://tyyliniekka.fi/wp-content/uploads/2019/11/E30.jpg";
+	}
+	else if (data == "Mercedes")	{
+	image.src = "https://www.auto-data.net/images/f127/Mercedes-Benz-220-W124.jpg";
+	}
+	else if (data == "Volvo")	{
+	image.src = "https://assets.volvocars.com/fi/~/media/shared-assets/images/galleries/inside/our-company/heritage/heritage-models/58_volvo_v70_v70xc_classic_thumb.jpg?w=800";
+	}
+	}
+
+//Exercise 3.2
+function showBorder()	{
+	var s = document.getElementById("carimage");
+	s.style.outline = "4px solid red";
+}
+function hideBorder()	{
+	var s = document.getElementById("carimage");
+	s.style.outline = "none";
+}
+
+//Exercise 4.1
+function changePosition()	{
+	var m = document.getElementById("carimage");
+	m.style="left:-200px;top:+500px";
+}
+//Exercise 4.2
+function doMove()	{
+var move = document.getElementById("carimage");
+move.position = "relative";
+var left = parseInt(move.style.left);
+if (left == "" ||left == null)
+left = 0;
+move.style.left = (left+10)+'em';
+}
+
+//Exercise 4.3
+function fadeOut()	{
+var image = document.getElementById('carimage');
+var opa = parseInt(image.style.opacity);
+image.style.opacity -= 0.2;
+}
+//Exercise 4.4
+function deletePic()	{
+	var image_d = document.getElementById("carimage");
+	image_d.parentNode.removeChild(carimage);
+}
+
+function insertRows()	{
+var name = document.getElementById("textfield");
+var position = document.getElementById("textfield2");
+var salary = document.getElementById("textfield3");
+var tableJS = document.getElementById("data");
+var count = tableJS.rows.length;
+var row = tableJS.insertRow(count);
+
+var cell1 = row.insertCell(0);
+var cell2 = row.insertCell(1);
+var cell3 = row.insertCell(2);
+
+cell1.innerHTML = name.value;
+cell2.innerHTML = position.value;
+cell3.innerHTML = salary.value;
+}
+</script>
+
+<h1>Workshop 4: DOM Scripting</h1>
+<hr />
+<p>In this exercise we will practice the art of DOM Scripting with JavaScript. Use the lecture-material as a reference guide side by side these exercises. It might also be a good idea to save the lines of code you write during the exercises for later use. </p>
+
+
+<h2>Exercise 1: Basic  DOM Manipulation</h2>
+<p>&nbsp;Below you will see three buttons. Edit the source code and add an onClick-events to these buttons. Use Developer Console to find the </p>
+<p>
+  <button onclick="changeHeader()">Button 1</button>
+  <button onclick="themeChange()">Button 2</button>
+  <button onclick="thirdButton()">Button 3</button>
+</p>
+
+<ul>
+  <li>The first button should run a JavaScript-function, which will find the reference to &quot;Workshop 4&quot; heading on this page and change the contents of it to &quot;Modified Heading!&quot;. </li>
+  <li> The second button should run a function, which </li>
+  will modify the style of the &quot;Exercise 2&quot; heading on this page. JavaScript should change at least the font size, style and color and the background color
+  <li>The third button should append the following text paragraph after the <strong>4th paragraph tag &lt;p&gt;</strong> on the page (without overwriting the current content). Change the background of the entire page as well. Note: The Lorem ipsum text should be in italics. It should also add a logo image of some sort after the text.<br>
+    <br>
+  <strong id="lorem"><em>&quot;Lorem ipsum</em></strong><em> dolor sit amet, consectetuer   adipiscing elit. Sed posuere interdum sem. Quisque ligula eros   ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam   vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget   velit. &quot;</em></li>
+</ul>
+
+<h2>Exercise 2: DOM Traversing using ID's and classes</h2>
+<p class="surprise">Add onchange -events to following checkboxes.</p>
+<p>
+  <label>
+    <input onchange="hide()" name="CheckboxGroup1" type="checkbox" id="CheckboxGroup1_0" title="Actions" value="1">
+   Hide me </label>
+  <br>
+  <label>
+    <input onchange="show()" type="checkbox" name="CheckboxGroup1" value="2" id="CheckboxGroup1_1">
+    Show me</label>
+  <br>
+  <label>
+    <input  onchange="surprise()" type="checkbox" name="CheckboxGroup1" value="3" id="CheckboxGroup1_2">
+    <span id="surprise">Surprise</span>
+  </label>
+</p>
+<ul>
+  <li>First checkbox: Find out which element has been described with the id &quot;data&quot;. Change the visibility (display value) of the element to none. What happens?</li>
+  <li>Second checkbox should return the visibility of the element to a normal state (block).</li>
+  <li>Third checkbox should find the elements with class &quot;surprise&quot; and change the font size to 20.</li>
+</ul>
+<p>&nbsp;</p>
+  <h2>Exercise 3: Images and pulldowns</h2>
+<li>Write a JavaScript function, which will fire when the pulldown menu item is changed. Show the users choice using alert -box.</li>
+<li>When the mouse is moved on top of the image, a colored border should appear surrounding it. On mouse out, border should disappear</li>
+<li>When you have accomplished the above, change the image (id=&quot;carimage&quot;) below based on the users choice on the pulldown menu below. Find appropriate images from the web.
+  <p>Select a new car from the list.</p>
+  <select name="mySelect" id="mySelect" onchange="alertChoice()">
+    <option value="BMW">BMW
+    <option value="Audi">Audi
+    <option value="Mercedes">Mercedes
+    <option value="Volvo">Volvo
+  </select>
+  <br>
+  <br>
+<img onmouseover="showBorder()" onmouseout="hideBorder()" style="left: 0px; opacity: 1;" src="https://tyyliniekka.fi/wp-content/uploads/2019/11/E30.jpg" width="400" id="carimage"/></li>
+<h2>Exercise 4: Moving things around</h2>
+<ul>
+  <li>
+    <p class="surprise">You can do neat things by editing CSS-rules via  JavaScript. See the examples in lecture slides. Then try these:</p>
+    <ol>
+      <li><button onclick="changePosition()">Move!</button>Select the div with an id &quot;carimage&quot; and move it 200px left and 500px down</li>
+      <li><button onclick="setInterval(function(){doMove();},1000); "/>Animate</button> Write a  funtion doMove() which  will move the image across the screen, or even better: back and forth on  the screen. The Interval required has already been added to the onclick -event of the list item.</li>
+      <li><button onclick="setInterval(function(){fadeOut();},250);"/>Fade out!</button> Wite  a function fadeOut() which will slowly decrease the opacity of the image from 1.0 to  0 making it fade out. The Interval required has already been added to the onclick -event of the list item</li>
+      <li><button onclick="deletePic()"/>Disappear! </button>Finally, write JavaScript which will remove the image from the page</li>
+    </ol>
+  </li>
+</ul>
+
+<h2>Exercise 5: Tables</h2>
+<ul>
+  <li class="surprise">Write a JavaScript function to  add rows to a table</li>
+  . Rows can contain preset values.
+  <li>When your code is working, try reading the content to be added from a set of fields below the table.</li>
+  <br>
+  <table id="data" class="display" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tfoot>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td>Tiger Nixon</td>
+        <td>System Architect</td>
+        <td>$320,800</td>
+      </tr>
+      <tr>
+        <td>Garrett Winters</td>
+        <td>Accountant</td>
+        <td>$170,750</td>
+      </tr>
+      <tr>
+        <td>Ashton Cox</td>
+        <td>Junior Technical Author</td>
+        <td>$86,000</td>
+      </tr>
+      <tr>
+        <td>Cedric Kelly</td>
+        <td>Senior Javascript Developer</td>
+        <td>$433,060</td>
+      </tr>
+      <tr>
+        <td>Airi Satou</td>
+        <td>Accountant</td>
+        <td>$162,700</td>
+      </tr>
+    </tbody>
+  </table>
+</ul>
+<p>
+  Name
+    <label for="textfield">:</label>
+  <input type="text" name="textfield" id="textfield">
+  <br>
+  Position:
+  <input type="text" name="textfield2" id="textfield2">
+<br>
+Salary:
+<input type="text" name="textfield3" id="textfield3">
+<br>
+<input type="button" onclick="insertRows()" name="Insert" id="Insert" value="Insert">
+</p>
+<h2>Bonus exercises for the enthusiastics</h2>
+<ul>
+  <li dir="ltr">
+    <p dir="ltr">Write a loop, which goes through all the LI tags in the page and replaces them with a &lt;strong&gt; tagged, red text saying &quot;Replaced&quot;.</p>
+  </li>
+  <li dir="ltr">How would you replace the contents only on the ones with the word &lsquo;Select&rsquo; in them?</li></ul>
+</html>
